@@ -12,12 +12,12 @@ print("現在はZUIKIの1ハンSwitchマスコンにのみ対応しています�
 print("随時アップデート(PS2 2ハン対応など)も予定していますので、ご期待ください")
 print()
 print("JRESim_Dengo Version0.1")
-print("使い方: プレイ画面まで移動した後、このプログラムを起動するだけです。")
-print("Xボタン:前位置、Bボタン:後位置、Aボタン:EBリセット、警笛1段:HOME、警笛2段:○")
+print("使い方: 運転台画面まで移動した後、マスコンをNにして、このプログラムを起動するだけです。")
+print("Xボタン:前位置、Bボタン:後位置、Aボタン:EBリセット")
 print("終了時はこのウィンドウをそのまま閉じてください。")
 
-time.sleep(0.1)
-keyboard.write("s", delay=0.05)
+time.sleep(2)
+keyboard.press_and_release("s")
 
 dengo = SwitchDenGo.SwitchDenGo()
 P = 0
@@ -31,7 +31,7 @@ while True:
     if B < dengo.brake_knotch:
         plus_knotch = dengo.brake_knotch - B
     for i in range(plus_knotch):
-        keyboard.write("z", delay=0.05)
+        keyboard.press_and_release("q")
     
     minus_knotch = 0
     if P < dengo.accel_knotch:
@@ -39,10 +39,11 @@ while True:
     if B > dengo.brake_knotch:
         minus_knotch = B - dengo.brake_knotch
     if dengo.brake_knotch == 9:
-        keyboard.write("1", delay=0.05)
+        keyboard.press_and_release("1")
+        time.sleep(0.5)
     else:
         for i in range(minus_knotch):
-            keyboard.write("q", delay=0.05)
+            keyboard.press_and_release("z")
     
     P = dengo.accel_knotch
     B = dengo.brake_knotch
@@ -52,7 +53,7 @@ while True:
     if "SW_B" in dengo.buttons:
         keyboard.send("down")
     if "SW_A" in dengo.buttons:
-        keyboard.write("e", delay=0.05)
+        keyboard.press_and_release("e")
     if "SW_HOME" in dengo.buttons:
         keyboard.send("enter")
     if "SW_CIRCLE" in dengo.buttons:
