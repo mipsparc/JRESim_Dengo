@@ -8,10 +8,9 @@ print("このソフトウェアは、JR東日本トレインシミュレータ(J
 print("ゲーム向けマスコンで操作できるようにするための、同人ソフトウェアです。")
 print("JR東日本およびその関連会社、また音楽館とは一切関係がありません。")
 print("製作者Twitter: @mipsparc , GitHub: https://github.com/mipsparc")
-print("現在はZUIKIの1ハンSwitchマスコンにのみ対応していますが、")
-print("随時アップデート(PS2 2ハン対応など)も予定していますので、ご期待ください")
+print("現在はZUIKIの1ハンSwitchマスコンとタイトーのPS2 Type2 2ハンドルマスコンに対応しています")
 print()
-print("JRESim_Dengo Version0.1")
+print("JRESim_Dengo Version1.1")
 print("使い方: シミュレータ起動前にこのプログラムを起動するだけです。")
 print("運転画面になったら、一旦非常ブレーキ(EB)に入れてください。")
 print("Xボタン:前位置、Bボタン:後位置、Aボタン:EBリセット")
@@ -56,3 +55,5 @@ while True:
         keyboard.send("enter")
     if "SW_CIRCLE" in dengo.buttons:
         keyboard.send("backspace")
+        
+    time.sleep(0.05)

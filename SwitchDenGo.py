@@ -1,10 +1,7 @@
 import pygame
 import time
 
-class SwitchDenGo():
-    ACCEL_KNOTCH_NUM = 5
-    BRAKE_KNOTCH_NUM = 9
-    
+class SwitchDenGo():    
     def __init__(self):
         pygame.init()
         self.joy = pygame.joystick.Joystick(0)
