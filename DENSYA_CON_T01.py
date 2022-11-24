@@ -20,8 +20,8 @@ class DENSYA_CON_T01():
         self.device.reset()
                 
     def loadStatus(self):
-        self.brake_knotch = 0
-        self.accel_knotch = 0
+        self.brake_knotch = None
+        self.accel_knotch = None
         self.buttons = []
         
         # 3回試行する
