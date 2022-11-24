@@ -22,35 +22,35 @@ B = 0
 while True:
     dengo.loadStatus()
     
-    if dengo.accel_knotch > 0:
+    if dengo.accel_knotch is not None:
         plus_p = 0
         minus_p = 0
         if P > dengo.accel_knotch:
-            plus_p = P - dengo.accel_knotch
+            minus_p = P - dengo.accel_knotch
         if P < dengo.accel_knotch:
-            minus_p = dengo.accel_knotch - P
+            plus_p = dengo.accel_knotch - P
         for i in range(plus_p):
             keyboard.press_and_release("z")
         for i in range(minus_p):
             keyboard.press_and_release("a")
-      
-    if dengo.brake_knotch == 9:
-        keyboard.press_and_release("/")
-        time.sleep(0.5)
-    elif dengo.brake_knotch > 0:
-        plus_b = 0
-        minus_b = 0
-        if B > dengo.accel_knotch:
-            plus_b = B - dengo.brake_knotch
-        if B < dengo.accel_knotch:
-            minus_b = dengo.brake_knotch - B
-        for i in range(plus_b):
-            keyboard.press_and_release(".")
-        for i in range(minus_p):
-            keyboard.press_and_release(",")
+        P = dengo.accel_knotch
     
-    P = dengo.accel_knotch
-    B = dengo.brake_knotch
+    if dengo.brake_knotch is not None:
+        if dengo.brake_knotch == 9:
+            keyboard.press_and_release("/")
+            time.sleep(0.5)
+        else:
+            plus_b = 0
+            minus_b = 0
+            if B > dengo.brake_knotch:
+                minus_b = B - dengo.brake_knotch
+            if B < dengo.brake_knotch:
+                plus_b = dengo.brake_knotch - B
+            for i in range(plus_b):
+                keyboard.press_and_release(".")
+            for i in range(minus_b):
+                keyboard.press_and_release(",")
+        B = dengo.brake_knotch
 
     if "TYPE2_UP" in dengo.buttons:
         keyboard.send("up")
