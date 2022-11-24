@@ -1,14 +1,17 @@
 #coding: utf-8
-
+import libusb_package
 import usb.core
+import usb.backend.libusb1
 import time
+
+libusb1_backend = usb.backend.libusb1.get_backend(find_library=libusb_package.find_library)
 
 class DENSYA_CON_T01(): 
     BR_LEVEL = {0x79: 0, 0x8A: 1, 0x94: 2, 0x9A: 3, 0xA2: 4, 0xA8: 5, 0xAF: 6, 0xB2: 7, 0xB5: 8, 0xB9: 9}
     MC_LEVEL = {0x81: 0, 0x6D: 1, 0x54: 2, 0x3F: 3, 0x21: 4, 0x00: 5}
 
     def __init__(self):
-        devices = usb.core.find(find_all=True, idVendor=0x0ae4, idProduct=0x0004)
+        devices = usb.core.find(find_all=True, backend=libusb1_backend, idVendor=0x0ae4, idProduct=0x0004)
         for device in devices:
             self.device = device
         
