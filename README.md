@@ -1,3 +1,8 @@
+# ご連絡
+製造時期の違いにより、製品によっては正しく動かないようです。
+修正してくださった方がいたので、こちらから取得ください。
+https://github.com/advanceboy/JRESim_Dengo/releases/tag/v1.0p1
+
 # JRESim_Dengo
 JR東日本トレインシミュレータ(JR EAST Train Simulator)をゲーム向けマスコンで操作できるようにするための、同人ソフトウェアです。
 
