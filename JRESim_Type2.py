@@ -56,9 +56,17 @@ while True:
         keyboard.send("up")
     if "TYPE2_DOWN" in dengo.buttons:
         keyboard.send("down")
+    if "TYPE2_LEFT" in dengo.buttons:
+        keyboard.send("left")
+    if "TYPE2_RIGHT" in dengo.buttons:
+        keyboard.send("right")
     if "TYPE2_A" in dengo.buttons:
         keyboard.press_and_release("e")
     if "HONE" in dengo.buttons or "TYPE2_B" in dengo.buttons:
         keyboard.send("backspace")
+    if "TYPE2_C" in dengo.buttons:
+        keyboard.press_and_release("enter")
+    if "TYPE2_D" in dengo.buttons:
+        keyboard.press_and_release("escape")
         
     time.sleep(0.02)
